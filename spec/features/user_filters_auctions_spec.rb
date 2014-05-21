@@ -46,7 +46,7 @@ feature "User filters current auctions" do
   scenario "no results" do
     all_auctions =  %w{a b c d e f g}
     visit '/'
-    within "header" do
+    within "#main_navigation" do
       fill_in "Search term", with: "notgoingtohaveresults"
     end
     click_button "Search"

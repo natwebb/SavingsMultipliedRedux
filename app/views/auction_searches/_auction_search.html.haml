@@ -14,14 +14,14 @@
         %li.children
           = link_to auctions_path(auction_search.to_hash(child_configuration_id: child_configuration.id)), title: child_configuration.genders do
             = render child_configuration
-    %h2 Limit your search:
+    %h2 Limit your search by:
     %hr
     = f.input :search_term
+    = f.submit "Search"
     - unless auction_search.needs_child_genders?
       = f.input :child_configuration_id, as: :hidden
-      = f.input :clothing_condition_id, collection: ClothingCondition.all
-      = f.input :brand_ids, as: :check_boxes, collection: Brand.all
-      = f.input :clothing_size_ids, as: :check_boxes, collection: ClothingSize.all
-      = f.input :clothing_type_ids, as: :check_boxes, collection: ClothingType.all
-      = f.input :season_ids, as: :check_boxes, collection: Season.all
-    = f.submit "Search"
+      = f.input :clothing_condition_id, as: :check_boxes, collection: ClothingCondition.all, label: "Condition"
+      = f.input :clothing_size_ids, as: :check_boxes, collection: ClothingSize.all, label: "Size"
+      = f.input :season_ids, as: :check_boxes, collection: Season.all, label: "Season"
+      = f.input :clothing_type_ids, as: :check_boxes, collection: ClothingType.all, label: "Type"
+      = f.input :brand_ids, collection: Brand.all, label: "Brand"

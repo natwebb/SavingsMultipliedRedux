@@ -4,7 +4,10 @@
 
     %h3 buying and selling gently used sets of clothes!
 
+    - 7.times do
+      = image_tag "homepage/dotted_line_44_36.png"
     = link_to "Shop Now!", auctions_path, class: "button primary"
+    = image_tag "homepage/dotted_line_44_36.png"
 
   .right-column
     #child_images
@@ -14,6 +17,8 @@
 
   .clear
 .bottom-row
+  - 20.times do
+    = image_tag "homepage/dotted_line_44_36.png"
   %ul
     %li= image_tag "homepage/facebook_callout.png"
     %li= image_tag "homepage/twitter_callout.png"

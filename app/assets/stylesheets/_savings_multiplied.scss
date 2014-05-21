@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Corben:700);
+
 header, footer, nav, #top {
   ul {
     display: inline;
@@ -11,6 +13,7 @@ header, footer, nav, #top {
 
 #top {
   background: rgb(206, 243, 241);
+  padding-top: 70px;
 
   #devise_navigation {
     display: block;
@@ -36,7 +39,7 @@ header, footer, nav, #top {
     height: 130px;
     background: #FFF;
     border-radius: 40px 40px 0px 0px;
-    margin: 100px auto 0px auto;
+    margin: 9px auto 0px auto;
 
     .left-column {
       h1 {
@@ -94,12 +97,13 @@ nav {
   padding-top: 5px;
   padding-bottom: 5px;
 
-  ul, form {
+  ul {
     width: 1000px;
 
     li {
       width: 166px;
       a {
+        font-family: 'Corben', cursive;
         color: rgb(123, 0, 71);
       }
     }
@@ -117,6 +121,10 @@ nav {
       border: 2px solid rgb(241, 147, 165);
       width: 100px;
       margin: 0px;
+      padding-left: 25px;
+      background-image: asset-data-url("homepage/search-icon.png");
+      background-repeat: no-repeat;
+      background-position: 5px 50%;
     }
   }
 }
@@ -156,21 +164,35 @@ nav {
   border-radius: 0px 0px 40px 40px;
   padding: 20px 15px;
 
+  .top-row {
+    background-image: asset-data-url("homepage/tree.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+  }
+
   @include grid-row();
 
   $left-column-size: 7;
   $right-column-size: 12 - $left-column-size;
   .left-column {
     @include grid-column($left-column-size);
-     h2 {
-      color: rgb(119, 192, 40);
-      font-size: 1.8em;
-     }
 
-     h3 {
+
+    h2 {
+      color: rgb(119, 192, 40);
+      font-size: 1.3em;
+      font-family: 'Corben', cursive;
+    }
+
+    h3 {
       color: rgb(79, 207, 212);
-      font-size: 1.4em;
-     }
+      font-size: 1.3em;
+      font-weight: normal;
+    }
+
+    h3:before {
+      content: asset-data-url("owls/owl_light_blue_32.png");
+    }
 
     a {
       border-radius: 20px;
@@ -184,13 +206,12 @@ nav {
 
     #child_images {
       :nth-child(2) {
-        margin: 10px 0px;
+        margin: 13px 0px;
       }
     }
   }
 
   .bottom-row {
-    border-top: 6px dotted rgb(206, 243, 241);
     margin-top: 40px;
     text-align: center;
 
@@ -213,9 +234,154 @@ nav {
   clear: both;
 }
 
+#auction_search_sidebar {
+  border-radius: 30px;
+  background-color: rgb(231, 253, 209);
+  width: 25%;
+  float: left;
+  padding: 10px;
 
+  form {
+    h2 {
+      font-weight: normal;
+      font-size: 1.2em;
+      text-align: center;
+      color: rgb(56, 125, 0);
+    }
 
+    hr {
+      margin-top: 0px;
+      border-color: rgb(56, 126, 0);
+    }
 
+    .input {
+      label {
+        display: block;
+        color: rgb(56, 125, 0);
+      }
+    }
+
+    .auction_search_search_term {
+      width: 75%;
+      display: inline-block;
+
+      label {
+        display: none;
+      }
+    }
+
+    input[name="commit"] {
+      background-color: rgb(119, 192, 40);
+      border: none;
+      border-radius: 10px;
+      color: white;
+    }
+
+    div.check_boxes {
+      label.check_boxes {
+        clear: left;
+        font-weight: normal;
+        font-size: 1em;
+      }
+
+      .checkbox {
+        * { display: inline-block; }
+        @include grid-column(6);
+        padding-left: 9px;
+        padding-right: 3px;
+
+        label {
+          font-weight: normal;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    div.select {
+      select {
+        border: none;
+        border-radius: 0px;
+        background-color: white;
+        color: rgb(56, 126, 0);
+      }
+    }
+  }
+}
+
+#search-right-column {
+  width: 70%;
+  float: left;
+  margin-left: 5%;
+
+  .breadcrumb_navigation {
+    list-style-type: none;
+    li {
+      a {
+        color: rgb(56, 125, 0);
+
+        .child_icons {
+          .large_gender {
+            width: 24px;
+            height: 32px;
+          }
+        }
+      }
+      display: inline-block;
+    }
+
+    li:after {
+      color: rgb(56, 125, 0);
+      content: " >";
+    }
+
+    li:last-child:after {
+      content: "";
+    }
+  }
+
+  #auction_sort {
+    form {
+      input[name="commit"] {
+        display: none;
+      }
+
+      .auction_search_sort_by {
+        label {
+          display: inline-block;
+          color: rgb(56, 125, 0);
+          margin-right: 10px;
+        }
+
+        select {
+          display: inline-block;
+          width: 30%;
+          border: 1px solid rgb(56, 125, 0);
+          background-color: #FFF;
+        }
+      }
+    }
+  }
+
+  #auctions {
+    .auction {
+      float: left;
+      width: 20%;
+      height: 130px;
+      margin-right: 5%;
+      margin-bottom: 30px;
+      background-color: rgb(231, 253, 209);
+      text-align: center;
+
+      a {
+        color: rgb(56, 125, 0);
+        font-size: 0.8em;
+        display: inline-block;
+        position: relative;
+        top: 132px;
+      }
+    }
+  }
+}
 
 
 
